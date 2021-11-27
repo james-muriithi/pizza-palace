@@ -115,9 +115,9 @@ html {
 
 #home .banner .order-now {
   position: absolute;
-  bottom: 10%;
-  left: 5%;
-  right: 5%;
+  bottom: 5%;
+  left: 3%;
+  right: 3%;
   width: auto;
 }
 
