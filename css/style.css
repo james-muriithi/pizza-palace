@@ -273,3 +273,30 @@ html {
   padding: 12px 30px;
   border-radius: 50px 50px 0 50px;
 }
+
+/* Footer */
+footer .contact a {
+  display: block;
+  text-decoration: none;
+  color: #666666;
+}
+
+footer .contact a:hover {
+  color: #000;
+}
+
+footer #subscribe {
+  background-color: #EE5A00;
+  color: #fafafa;
+}
+
+footer .lower-section {
+  color: #666666;
+  background: #F3DADA;
+  font-size: 14px;
+}
+
+footer .lower-section .socials img {
+  cursor: pointer;
+  height: 15px;
+}
