@@ -65,14 +65,51 @@ const crusts = [
 
 //   pizzas array
 const pizzas = [
-  new Pizza(1, "Tikka Chicken", "./images/pizza/pizza1.png"),
-  new Pizza(2, "Chicken & Mushroom", "./images/pizza/pizza2.png"),
-  new Pizza(3, "Sweet Chilli Chicken", "./images/pizza/pizza3.png"),
-  new Pizza(4, "Mexican Fiesta", "./images/pizza/pizza4.png"),
-  new Pizza(5, "BBQ Chcken", "./images/pizza/pizza5.png"),
-  new Pizza(6, "Four Seasons", "./images/pizza/pizza6.png"),
-  new Pizza(7, "Meet Steak & Mushroom", "./images/pizza/pizza7.png"),
-  new Pizza(8, "Peri Peri Chicken", "./images/pizza/pizza8.png"),
+  new Pizza(
+    1,
+    "Tikka Chicken",
+    "./images/pizzas/pizza1.png",
+    600,
+    pizzaSizes[0]
+  ),
+  new Pizza(
+    2,
+    "Chicken & Mushroom",
+    "./images/pizzas/pizza2.png",
+    1100,
+    pizzaSizes[1]
+  ),
+  new Pizza(
+    3,
+    "Sweet Chilli Chicken",
+    "./images/pizzas/pizza3.png",
+    1000,
+    pizzaSizes[2]
+  ),
+  new Pizza(
+    4,
+    "Mexican Fiesta",
+    "./images/pizzas/pizza4.png",
+    1000,
+    pizzaSizes[1]
+  ),
+  new Pizza(5, "BBQ Chcken", "./images/pizzas/pizza5.png", 600, pizzaSizes[0]),
+  new Pizza(6, "Four Seasons", "./images/pizzas/pizza6.png", 800, pizzaSizes[2]),
+  new Pizza(
+    7,
+    "Meet Steak & Mushroom",
+    "./images/pizzas/pizza7.png",
+    600,
+    pizzaSizes[0]
+  ),
+  new Pizza(
+    8,
+    "Peri Peri Chicken",
+    "./images/pizzas/pizza8.png",
+    1200,
+    pizzaSizes[1],
+    2
+  ),
 ];
 
 // UI Logic
@@ -80,9 +117,19 @@ const nav = $("nav");
 
 $(function () {
   $("body").on("scroll", changeNavbarClass);
+
+  const menuSection = $(".pizzas");
+
+  menuSection.html("");
+
+  pizzas.forEach((pizza) => {
+    menuSection.append(getPizzaCard(pizza));
+  });
 });
 
 changeNavbarClass();
+
+// functions
 
 function changeNavbarClass() {
   const whyChooseUsSection = $("#why-choose-us").offset().top;
@@ -92,4 +139,56 @@ function changeNavbarClass() {
   } else {
     nav.removeClass("inverse");
   }
+}
+
+function getPizzaCard(pizza) {
+  return `<div class="col-md-4 col-lg-3 col-sm-6 mb-3 col-xl-2">
+    <div class="pizza-card p-3">
+
+        <div class="card-image">
+            <img src="${pizza.image}" alt="" class="img-fluid">
+        </div>
+
+        <div class="pizza-details">
+            <h2 class="pizza-title py-3">
+                ${pizza.name}
+            </h2>
+
+            <p class="price">
+                Ksh ${pizza.price}
+            </p>
+
+            <div class="rating-order row">
+                <div class="col-6 d-flex align-items-center">
+                    <div class="rating">
+                        ${getPizzaRating(pizza.rating)}
+                        <span class="ps-2 number">
+                            ${pizza.rating}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-6 text-center">
+                    <button class="order btn" data-pizza="${pizza.id}">
+                        <img src="./images/cart.png" alt="" class="img-fluid">
+                        Order
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>`;
+}
+
+function getPizzaRating(rating) {
+  let ratingsHtml = "";
+  [...Array(5)].forEach((_, i) => {
+    if (rating >= i + 1) {
+      ratingsHtml += `<i class="fa fa-star active-star"></i>`;
+    } else {
+      ratingsHtml += `<i class="far fa-star"></i>`;
+    }
+  });
+
+  return ratingsHtml;
 }
