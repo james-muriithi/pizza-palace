@@ -3,6 +3,7 @@ body,
 html {
   height: 100%;
   font-family: Roboto, "serif";
+  overflow-x: hidden;
 }
 
 .navbar-toggler:active, .navbar-toggler:focus,
@@ -116,6 +117,8 @@ html {
   position: absolute;
   bottom: 10%;
   left: 5%;
+  right: 5%;
+  width: auto;
 }
 
 #home .banner .order-now button {
@@ -123,4 +126,20 @@ html {
   color: #fff;
   padding: 12px 30px;
   border-radius: 50px 50px 0 50px;
+}
+
+#home .banner .order-now .social-icons .icon {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #fff;
+  margin-right: 0.66667rem;
+  margin-left: 0.66667rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home .banner .order-now .social-icons .icon img {
+  height: 25px;
 }
