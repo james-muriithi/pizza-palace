@@ -65,7 +65,7 @@ html {
 }
 
 #home nav {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.9);
   height: 60px;
 }
 
@@ -75,7 +75,7 @@ html {
 }
 
 #home nav .navbar-brand img {
-  height: 50px;
+  height: 40px;
 }
 
 #home nav .nav-link {
@@ -231,4 +231,45 @@ html {
 
 #menu .menu .pizza-card .pizza-details .rating-order .order.btn:hover {
   box-shadow: 0px 2px 4px rgba(59, 69, 123, 0.2), 0px 4px 8px rgba(243, 218, 218, 0.15);
+}
+
+#offers {
+  background: rgba(243, 218, 218, 0.3);
+}
+
+#offers .offer-div {
+  border-radius: 25px;
+}
+
+@media screen and (max-width: 576px) {
+  #offers .offer-div {
+    height: 180px;
+  }
+}
+
+#offers .offer-div img {
+  border-radius: 25px;
+  height: 100%;
+}
+
+#offers .offer-div .overlay {
+  background: rgba(0, 0, 0, 0.23);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 25px;
+}
+
+#offers .offer-div .order-now {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+}
+
+#offers .offer-div .order-now button {
+  background-color: #EE5A00;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 50px 50px 0 50px;
 }
