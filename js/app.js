@@ -1,3 +1,6 @@
+
+
+// UI Logic
 const nav = $("nav");
 
 $(function () {
