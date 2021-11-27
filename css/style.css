@@ -66,7 +66,7 @@ html {
 
 #home nav {
   background: rgba(0, 0, 0, 0.1);
-  height: 70px;
+  height: 60px;
 }
 
 #home nav .navbar-brand {
@@ -167,4 +167,32 @@ html {
     padding-top: 3.5rem !important;
     padding-bottom: 3.5rem !important;
   }
+}
+
+#menu {
+  background: rgba(243, 218, 218, 0.3);
+}
+
+#menu .filter-buttons .filter-button {
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: #3b463c;
+  height: 40px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#menu .filter-buttons .filter-button:hover, #menu .filter-buttons .filter-button.active {
+  border: 1px solid #EE5A00;
+  color: #EE5A00;
+}
+
+#menu .menu .pizza-card {
+  background: #fff;
+  box-shadow: 0px 2px 4px rgba(59, 69, 123, 0.2), 0px 4px 8px rgba(243, 218, 218, 0.15);
+  border-radius: 8px;
 }
