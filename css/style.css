@@ -2,10 +2,17 @@
 body,
 html {
   height: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: Roboto, "serif";
+}
+
+.navbar-toggler:active, .navbar-toggler:focus,
+.btn:active,
+.btn:focus {
+  box-shadow: none;
 }
 
 #home {
+  position: relative;
   /* Navbar */
   background: url("../images/bg.png");
   height: 100%;
@@ -87,4 +94,33 @@ html {
   width: 18px;
   right: -8px;
   top: -3px;
+}
+
+#home .banner .details h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+#home .banner .details p {
+  font-size: 1.15rem;
+}
+
+@media screen and (max-width: 576px) {
+  #home .banner .details h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+}
+
+#home .banner .order-now {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+}
+
+#home .banner .order-now button {
+  background-color: #EE5A00;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 50px 50px 0 50px;
 }
