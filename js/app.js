@@ -10,6 +10,35 @@ function Pizza(id, name, image, price, size, rating = 4) {
   this.rating = rating;
 }
 
+Pizza.prototype.setCrust = function (crustId) {
+  const selectedCrust = crusts.find(({ id }) => id == crustId);
+  if (selectedCrust) {
+    this.crust = selectedCrust;
+    this.calculatePrice();
+  }
+};
+
+Pizza.prototype.setToppings = function (toppings) {
+  this.toppings = toppings;
+  this.calculatePrice();
+};
+
+Pizza.prototype.calculatePrice = function () {
+  let price = this.price;
+
+  if (this.crust) {
+    price += this.crust.price;
+  }
+
+  if (this.toppings.length > 0) {
+    this.toppings.forEach((topping) => {
+      price += topping.price;
+    });
+  }
+
+  this.price = price;
+};
+
 //   pizza sizes
 
 const pizzaSizes = ["small", "large", "medium"];
@@ -118,13 +147,10 @@ const pizzas = [
   ),
 ];
 
-
-
-
-
-
 // UI Logic
 const nav = $("nav");
+// initiaize new Cart object
+const cart = new Cart();
 
 $(function () {
   $("body").on("scroll", changeNavbarClass);
@@ -132,11 +158,18 @@ $(function () {
   $(".filter-button").on("click", filterPizzas);
 
   appendPizzas(pizzas);
+
+  //   order button on click
+  $(document).on("click", ".order.btn", function () {
+    const pizzaId = $(this).data("pizza");
+    const selectedPizza = pizzas.find((pizza) => pizza.id == pizzaId);
+
+    cart.addItem(selectedPizza);
+
+  });
 });
 
 changeNavbarClass();
-
-
 
 // functions
 
@@ -193,7 +226,9 @@ function getPizzaCard(pizza) {
 
             <p class="price">
                 Ksh ${pizza.price}
-                <small class="float-end text-muted text-capitalize">${pizza.size}</small>
+                <small class="float-end text-muted text-capitalize">${
+                  pizza.size
+                }</small>
             </p>
 
             <div class="rating-order row">
