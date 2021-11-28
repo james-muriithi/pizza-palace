@@ -94,10 +94,16 @@ const pizzas = [
     pizzaSizes[1]
   ),
   new Pizza(5, "BBQ Chcken", "./images/pizzas/pizza5.png", 600, pizzaSizes[0]),
-  new Pizza(6, "Four Seasons", "./images/pizzas/pizza6.png", 800, pizzaSizes[2]),
+  new Pizza(
+    6,
+    "Four Seasons",
+    "./images/pizzas/pizza6.png",
+    800,
+    pizzaSizes[2]
+  ),
   new Pizza(
     7,
-    "Meet Steak & Mushroom",
+    "CHICKEN O’RELLO",
     "./images/pizzas/pizza7.png",
     600,
     pizzaSizes[0]
@@ -112,25 +118,42 @@ const pizzas = [
   ),
 ];
 
+
+
+
+
+
 // UI Logic
 const nav = $("nav");
 
 $(function () {
   $("body").on("scroll", changeNavbarClass);
 
-  const menuSection = $(".pizzas");
+  $(".filter-button").on("click", filterPizzas);
 
-  menuSection.html("");
-
-  pizzas.forEach((pizza) => {
-    menuSection.append(getPizzaCard(pizza));
-  });
+  appendPizzas(pizzas);
 });
 
 changeNavbarClass();
 
+
+
 // functions
 
+// filter pizzas
+function filterPizzas() {
+  const size = $(this).data("filter");
+  $(this).addClass("active").siblings().removeClass("active");
+  if (size != "all") {
+    const filteredPizzas = pizzas.filter((pizza) => pizza.size == size);
+
+    appendPizzas(filteredPizzas);
+  } else {
+    appendPizzas(pizzas);
+  }
+}
+
+// change navbar bg color on scroll
 function changeNavbarClass() {
   const whyChooseUsSection = $("#why-choose-us").offset().top;
 
@@ -140,6 +163,20 @@ function changeNavbarClass() {
     nav.removeClass("inverse");
   }
 }
+
+// append all pizzas
+
+function appendPizzas(pizzas) {
+  const menuSection = $(".pizzas");
+
+  menuSection.html("");
+
+  pizzas.forEach((pizza) => {
+    menuSection.append(getPizzaCard(pizza));
+  });
+}
+
+// returns a pizza card
 
 function getPizzaCard(pizza) {
   return `<div class="col-md-4 col-lg-3 col-sm-6 mb-3 col-xl-2">
@@ -156,6 +193,7 @@ function getPizzaCard(pizza) {
 
             <p class="price">
                 Ksh ${pizza.price}
+                <small class="float-end text-muted text-capitalize">${pizza.size}</small>
             </p>
 
             <div class="rating-order row">
@@ -180,6 +218,7 @@ function getPizzaCard(pizza) {
 </div>`;
 }
 
+// function to get pizza rating stars
 function getPizzaRating(rating) {
   let ratingsHtml = "";
   [...Array(5)].forEach((_, i) => {
