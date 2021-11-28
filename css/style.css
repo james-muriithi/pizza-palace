@@ -79,6 +79,17 @@ html {
   background: rgba(0, 0, 0, 0.6);
 }
 
+#home nav.inverse .navbar-collapse.show {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#home nav .navbar-collapse.show {
+  background: rgba(0, 0, 0, 0.1);
+  margin-right: -12px;
+  margin-left: -12px;
+  padding-left: 12px;
+}
+
 #home nav .navbar-brand {
   color: #EE5A00;
   font-weight: bold;
@@ -189,9 +200,10 @@ html {
   border-radius: 50px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   color: #3b463c;
-  height: 40px;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  height: 30px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: 12px;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -296,6 +308,10 @@ footer .contact a {
 
 footer .contact a:hover {
   color: #000;
+}
+
+footer .logo img {
+  height: 40px;
 }
 
 footer #subscribe {

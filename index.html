@@ -21,27 +21,39 @@
     <!-- start navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand ps-2 fw-bold" href="#">
+            <a class="navbar-brand ps-2 fw-bold" href="/">
                 <img src="./images/logo.png" alt="Chef" class="img-fluid">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
+
+            <div class="d-flex">
+                <span class="cart d-flex d-lg-none me-2">
+                    <span class="my-auto">
+                        <img src="./images/basket.png" alt="cart">
+                        <div class="cart-counter">0</div>
+                    </span>
+                </span>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 pe-0 pe-lg-2 fs-5">
                     <li class="nav-item pe-5">
-                        <a class="nav-link active fw-bold" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active fw-bold" aria-current="page" href="#home">Home</a>
                     </li>
                     <li class="nav-item pe-5">
-                        <a class="nav-link" href="#">Menu</a>
+                        <a class="nav-link" href="#menu">Menu</a>
                     </li>
                     <li class="nav-item pe-5">
-                        <a class="nav-link" href="#services">Offers</a>
+                        <a class="nav-link" href="#offers">Offers</a>
                     </li>
                     <li class="nav-item pe-5">
-                        <a class="nav-link" href="#contact">About</a>
+                        <a class="nav-link" href="#why-choose-us">About</a>
                     </li>
                     <li class="nav-item d-none d-lg-flex cart pe-5" title="cart">
                         <span>
@@ -95,7 +107,7 @@
 
 <section id="why-choose-us" class="py-5">
     <div class="container-lg container-fluid">
-        <div class="row">
+        <div class="row mx-0">
             <div class="col-md-5 d-flex align-items-center justify-content-center">
                 <img src="./images/pizza.png" alt="pizza" class="img-fluid">
             </div>
@@ -170,16 +182,16 @@
 
     <div class="pt-4">
         <div class="filter-buttons d-flex justify-content-center flex-wrap">
-            <button class="filter-button btn mx-3 active mb-3 mb-md-0" data-filter="all">
+            <button class="filter-button btn mx-2 active mb-2 mb-md-0" data-filter="all">
                 All
             </button>
-            <button class="filter-button btn mx-3 mb-3 mb-md-0" data-filter="large">
+            <button class="filter-button btn mx-2 mb-2 mb-md-0" data-filter="large">
                 Large
             </button>
-            <button class="filter-button btn mx-3 mb-3 mb-md-0" data-filter="medium">
+            <button class="filter-button btn mx-2 mb-2 mb-md-0" data-filter="medium">
                 Medium
             </button>
-            <button class="filter-button btn mx-3 mb-3 mb-md-0" data-filter="small">
+            <button class="filter-button btn mx-3 mb-2 mb-md-0" data-filter="small">
                 Small
             </button>
         </div>
