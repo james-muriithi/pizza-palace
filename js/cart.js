@@ -50,7 +50,7 @@ Cart.prototype.calculateGrandTotal = function () {
 
 Cart.prototype.calculateTotal = function () {
   this.total = this.items.reduce((prevItem, currentItem) => {
-    return prevItem + currentItem.price * currentItem.quantity;
+    return prevItem + currentItem.total * currentItem.quantity;
   }, 0);
 };
 
